@@ -101,7 +101,7 @@ static const Key keys[] = {
 	{ MODKEY, 			XK_b, 	   spawn, 	   {.v = browser} },
     	{ MODKEY, 			XK_d, 	   spawn, 	   {.v = discord} },
 	{ MODKEY, 			XK_q, 	   killclient,     {0} },
-	{ MODKEY,                       XK_b,      togglebar,      {0} },
+	{ MODKEY,                       XK_g,      togglebar,      {0} },
 	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
 	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
 	{ MODKEY,                       XK_d,      incnmaster,     {.i = -1 } },
