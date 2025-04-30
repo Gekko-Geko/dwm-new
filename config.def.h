@@ -52,7 +52,6 @@ static const Rule rules[] = {
     	{ "thunderbird", NULL,     NULL,           1 << 1,       0,           -1 },
     	{ NULL,          NULL,     "Event Tester", 0,            0,           -1 },
 };
-};
 
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
