@@ -5,8 +5,8 @@ static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "monospace:size=12" };
-static const char dmenufont[]       = "monospace:size=12";
+static const char *fonts[]          = { "monospace:size=14" };
+static const char dmenufont[]       = "monospace:size=14";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
@@ -61,7 +61,7 @@ static const Layout layouts[] = {
 };
 
 /* key definitions */
-#define MODKEY Mod1Mask
+#define MODKEY Mod4Mask
 #define TAGKEYS(KEY,TAG) \
 	{ MODKEY,                       KEY,      view,           {.ui = 1 << TAG} }, \
 	{ MODKEY|ControlMask,           KEY,      toggleview,     {.ui = 1 << TAG} }, \
@@ -73,13 +73,29 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
+static const char *termcmd[]    = { "st", NULL };
+static const char *browser[]    = { "firefox", NULL };
+static const char *discord[]    = { "discord", NULL };
+static const char *shutdown[]   = { "prompt", "Do you want to shutdown?", "/sbin/halt -p", NULL };
+static const char *screenshot[] = { "/usr/local/bin/screenshot", NULL };
+static const char *upbright[]   = { "/sbin/brillo", "-q", "-A", "10", NULL };
+static const char *downbright[] = { "/sbin/brillo", "-q", "-U", "10", NULL };
+static const char *locking[]    = { "/usr/local/bin/slock" };
+static const char *vol_up[]     = { "/usr/local/bin/volume_up" };
+static const char *vol_down[]   = { "/usr/local/bin/volume_down" };
+static const char *vol_mute[]   = { "/usr/local/bin/volume_mute" };
+static const char *skippy[]     = { "/sbin/skippy-xd" };
+
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
+	{ MODKEY, 			XK_b, 	   spawn, 	   {.v = browser} },
+    	{ MODKEY, 			XK_d, 	   spawn, 	   {.v = discord} },
+	{ MODKEY, 			XK_Tab,    spawn, 	   {.v = skippy} 1},
+	{ MODKEY|ShiftMask, 		XK_s, 	   spawn,	   {.v = screenshot} },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
@@ -107,11 +123,13 @@ static const Key keys[] = {
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
 	TAGKEYS(                        XK_6,                      5)
-	TAGKEYS(                        XK_7,                      6)
-	TAGKEYS(                        XK_8,                      7)
-	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 	{ MODKEY|ControlMask|ShiftMask, XK_q,      quit,           {1} },
+	{ 0, 				XF86XK_AudioLowerVolume,   spawn, {.v = vol_down} },
+    	{ 0, 				XF86XK_AudioRaiseVolume,   spawn, {.v = vol_up} },
+    	{ 0, 				XF86XK_AudioMute, 	   spawn, {.v = vol_mute} },
+	{ 0, 				XF86XK_MonBrightnessDown,  spawn, {.v = downbright} },
+    	{ 0, 				XF86XK_MonBrightnessUp,    spawn, {.v = upbright} },
 };
 
 /* button definitions */
