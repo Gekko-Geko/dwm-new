@@ -103,14 +103,14 @@ static const char *dmenucmd[]   = { "dmenu_run", "-m", dmenumon, "-fn", dmenufon
 static const char *termcmd[]    = { "st", NULL };
 static const char *browser[]    = { "firefox", NULL };
 static const char *discord[]    = { "vesktop", NULL };
-static const char *shutdown[]   = { "prompt", "Do you want to shutdown?", "/sbin/halt -p", NULL };
-static const char *screenshot[] = { "/usr/local/bin/screenshot", NULL };
+static const char *shutdown[]   = { "prompt", "Do you want to shutdown?", "halt -p", NULL };
+static const char *screenshot[] = { "screenshot", NULL };
 static const char *upbright[]   = { "/sbin/brillo", "-q", "-A", "10", NULL };
 static const char *downbright[] = { "/sbin/brillo", "-q", "-U", "10", NULL };
 static const char *locking[]    = { "/usr/local/bin/slock" };
-static const char *vol_up[]     = { "/usr/local/bin/volume_up" };
-static const char *vol_down[]   = { "/usr/local/bin/volume_down" };
-static const char *vol_mute[]   = { "/usr/local/bin/volume_mute" };
+static const char *vol_up[]     = { "volume_up" };
+static const char *vol_down[]   = { "volume_down" };
+static const char *vol_mute[]   = { "volume_mute" };
 static const char *skippy[]     = { "/sbin/skippy-xd" };
 
 #include "movestack.c"
