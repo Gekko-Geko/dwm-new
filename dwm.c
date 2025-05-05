@@ -705,7 +705,6 @@ configurerequest(XEvent *e)
 				XMoveResizeWindow(dpy, c->win, c->x, c->y, c->w, c->h);
 		} else
 			configure(c);
-		break;
 	} else {
 		wc.x = ev->x;
 		wc.y = ev->y;
