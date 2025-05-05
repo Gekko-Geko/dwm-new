@@ -108,9 +108,9 @@ static const char *screenshot[] = { "screenshot", NULL };
 static const char *upbright[]   = { "/sbin/brillo", "-q", "-A", "10", NULL };
 static const char *downbright[] = { "/sbin/brillo", "-q", "-U", "10", NULL };
 static const char *locking[]    = { "/usr/local/bin/slock" };
-static const char *vol_up[]     = { "volume_up" };
-static const char *vol_down[]   = { "volume_down" };
-static const char *vol_mute[]   = { "volume_mute" };
+static const char *vol_up[]     = { "vol_up" };
+static const char *vol_down[]   = { "vol_down" };
+static const char *vol_mute[]   = { "vol_mute" };
 static const char *skippy[]     = { "/sbin/skippy-xd" };
 
 #include "movestack.c"
